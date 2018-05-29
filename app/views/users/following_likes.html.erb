@@ -9,6 +9,8 @@
       </div>
     </div>
     <%= render 'relationships/follow_button', user: @user %>
+    <%#= render 'relationship_likes/like_button', micropost: @micropost %>
+    <%#= render 'relationship_likes/like_button', user: @user %>
   </aside>
   <div class="col-xs-8">
     <ul class="nav nav-tabs nav-justified">
@@ -17,6 +19,6 @@
       <li class="<%= 'active' if current_page?(followers_user_path(@user)) %>"><%= link_to followers_user_path(@user) do %>Followers <span class="badge"><%= @count_followers %></span><% end %></li>
       <li class="<%= 'active' if current_page?(following_likes_user_path(@user)) %>"><%= link_to following_likes_user_path(@user) do %>Likes <span class="badge"><%= @count_following_likes %></span><% end %></li>
     </ul>
-    <%= render 'microposts/microposts', microposts: @microposts %>
+    <%= render 'microposts/microposts', microposts: @following_likes %>
   </div>
 </div>
